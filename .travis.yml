@@ -1,0 +1,14 @@
+before_install:
+- "sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng"
+script:
+- mkdir _build
+- pdflatex -output-directory _build tex/try1.tex
+
+deploy:
+  provider: releases
+  api_key:
+    secure: WP7N3eV0SjEfj8eIO/ISRxPXdiV2fYmxLVUZD5X4GKJnbY5Do3YUPJMITootZPKCJkaoGCLCtSy0zo970arJP+xHY58y9bxlu4nqvYlt7poFA/jyixvZJkFOMeDMDHpTU1HUdR1zuxQC3BR9jB1KHvdgCJUBP12/P6uXCkssku5KI0DErPEN7ES9Fa2ykx/Fr8kwO0pfpNphRJlqLYu5enwKKBv2cSTzSMeSeEh+p8cVc1EtPQ0ZR7r66Lft+56plEEklwkmr9ozKL7phB3LKMzcV1LnwuwTB6wVne1Lg3e+1JQIokICg09ka/d6cSgN5p1zvOR2z0ObzPLgLsA+lImoEIl7KGysZOejAplRap3jryF3TSHA1FQ+b0/nuDkbzoqPmhKfXoPLHS69KRrWIAvoaEcy1BFRN3YjLXwMDViHprEB5W0qqd0oXrv6tvfjwa7SMpbL4exKx6YcXdTtvlhnZ7skUi/x7YJ+PLYWDk3OK9uFKaBQ3ue1UjFT3jYWfWLyZzY++xSRByuhYzhV0HYM3Cc15DpZakn6FxuTK5hjDdCogDftUI3ylihNK79Q0/Fi6BuK4OOHCmFygslfRwCpONn/WEbmndWRT/0AxaAjQQH6IcmsT8O7Tm5Mkm6ETmVKrX4XEcGWVSQLU8ZQ/E1ef0fNs1e0Mfp00HCe5Ro=
+  file: try1.pdf
+  skip_cleanup: true
+  on:
+    repo: FavioVazquez/travis-ci-latex-try
